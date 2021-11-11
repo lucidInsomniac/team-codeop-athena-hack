@@ -63,4 +63,6 @@ Team CodeOp's repo for Athena Winter Hackathon
 
             git push origin staging
 
+    4. On your GitHub, a pop-up with a green button will appear with something like "Compare & Pull Request". Click confirm these merges but DO NOT DELETE when it pops up with the purple indicator. 
+
 ## <a name="create-branch">Create New Component/Feature</a>
