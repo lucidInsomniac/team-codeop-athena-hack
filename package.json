@@ -2,8 +2,17 @@
   "name": "team-codeop-athena-hack",
   "version": "1.0.0",
   "description": "athena-hackathon",
-  "main": "index.js",
   "repository": "https://github.com/lucidInsomniac/team-codeop-athena-hack.git",
   "author": "Donna Chin <donnchin@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "migrate": "^1.7.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15"
+  }
 }
