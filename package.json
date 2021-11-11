@@ -1,0 +1,9 @@
+{
+  "name": "team-codeop-athena-hack",
+  "version": "1.0.0",
+  "description": "athena-hackathon",
+  "main": "index.js",
+  "repository": "https://github.com/lucidInsomniac/team-codeop-athena-hack.git",
+  "author": "Donna Chin <donnchin@gmail.com>",
+  "license": "MIT"
+}
