@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import ReactRoutes from './components/ReactRoutes'
 import './App.css';
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
       <header className="App-header">
        <h1>Hi Team!</h1>
       </header>
+      <ReactRoutes />
     </div>
   );
 }
