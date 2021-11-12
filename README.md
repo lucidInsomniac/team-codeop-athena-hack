@@ -159,3 +159,5 @@ Team CodeOp's repo for Athena Winter Hackathon
     3. Run yarn one more time:
 
         yarn 
+
+    4. In the project folder "team-codeop-athena-hack, right click and create new file called ".env" file for database.
