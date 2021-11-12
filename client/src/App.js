@@ -1,14 +1,26 @@
 import ReactRoutes from './components/ReactRoutes'
+import NavBar from './components/NavBar'
+import {BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 
 function App() {
+
   return (
+
+    <Router>
+
     <div className="App">
-      <header className="App-header">
+
        <h1>Hi Team!</h1>
-      </header>
+      
+      <NavBar />
+
       <ReactRoutes />
+
     </div>
+
+    </Router>
+
   );
 }
 
