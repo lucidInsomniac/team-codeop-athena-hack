@@ -1,0 +1,82 @@
+
+=====================================================
+
+Creating MYSQL Script files:
+
+-- How to export DB file:
+-- mysql -u root -p [dbname] > [path to filename.sql]
+
+-- How to import DB file 
+-- mysql -u root -p [dbname] < [path to filename.sql]
+
+-- How to create sql file:
+-- Video ref: https://youtu.be/Tw0FMyNM_88
+
+--DB Schema lookup flowchart shapes: https://www.rff.com/flowchart_shapes.php
+=====================================================
+
+change to desired DB with:
+
+=====================================================
+
+        /*change DB*/
+
+use rampup;
+
+
+
+        /*create inventory table*/
+
+
+CREATE TABLE inventory (
+    -> ord_id INT NOT NULL AUTO_INCREMENT,
+    -> ord_date VARCHAR (10),
+    -> vendor VARCHAR (20),
+    -> team VARCHAR (30),
+    -> item VARCHAR (100),
+    -> size VARCHAR (10),
+    -> qty INT NOT NULL,
+    -> part_ord VARCHAR (3) NOT NULL,
+    -> full_ord VARCHAR (3) NOT NULL,
+    -> PRIMARY KEY (ord_id)
+    -> );
+
+
+
+    /*Add data into "inventory" table*/
+
+    //check data type
+    Command: 
+            desc inventory;
+
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| ord_id   | int          | NO   | PRI | NULL    | auto_increment |
+| ord_date | varchar(10)  | YES  |     | NULL    |                |
+| vendor   | varchar(20)  | YES  |     | NULL    |                |
+| team     | varchar(30)  | YES  |     | NULL    |                |
+| item     | varchar(100) | YES  |     | NULL    |                |
+| size     | varchar(10)  | YES  |     | NULL    |                |
+| qty      | int          | NO   |     | NULL    |                |
+| part_ord | varchar(3)   | NO   |     | NULL    |                |
+| full_ord | varchar(3)   | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+9 rows in set (0.01 sec)
+        /* insert into name of table*/
+        /*Input column names*/
+        /*insert values*/
+
+INSERT INTO inventory (ord_id, ord_date, vendor, team, item, size, qty, part_ord, full_ord) VALUES ( 
+    "11/15/19",  "Metro Sport", "Basketball", "Uniform Shorts", "L", 30, "Yes", "No" ); 
+
+
+        /* Getting all data for  Receiving Where full = NO*/
+
+SELECT * from orders where full_ord = 'No';
+
+
+        /*Getting all data for Inventory Where full = YES*/
+
+SELECT * from orders where full_ord = 'Yes';
+
