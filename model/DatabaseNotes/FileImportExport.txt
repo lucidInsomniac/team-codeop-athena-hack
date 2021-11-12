@@ -21,12 +21,13 @@ change to desired DB with:
 
         /*change DB*/
 
-use rampup;
+use nameOfDatabase;
 
 
 
-        /*create inventory table*/
+        /*create nameofTable table*/
 
+example:
 
 CREATE TABLE inventory (
     -> ord_id INT NOT NULL AUTO_INCREMENT,
