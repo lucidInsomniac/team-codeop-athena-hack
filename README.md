@@ -108,7 +108,7 @@ Team CodeOp's repo for Athena Winter Hackathon
 
    5. Create a new branch for each new feature and switch into it:
 
-        git checkout -b newFeature
+          git checkout -b newFeature
 
    If you are working on an EXISTING BRANCH, use this:
 
@@ -118,17 +118,17 @@ Team CodeOp's repo for Athena Winter Hackathon
 
    7. Save, commit, pull from the team repo,if conflicts show, resolve: save and commit again.
 
-        git add .
+          git add .
 
-        git commit -m "created new feature"
+          git commit -m "created new feature"
 
    8. Before we push, we need to make sure we are current with the team repo, so we will update one more time. Resolve any conflicts: save and commit.
 
-        git pull --rebase team staging
+          git pull --rebase team staging
 
    9. Push to your GitHub with a new feature branch:
 
-        git push origin newFeature
+          git push origin newFeature
 
    10. On your GitHub, a pop-up will show Compare and Pull Request from your new feature branch to main branch. Select staging instead of main, then click confirm merge. 
 
