@@ -2,7 +2,7 @@
 Team CodeOp's repo for Athena Winter Hackathon
 
 1. [Introductions](#introductions)
-2. [Projet Objective](#objective)
+2. [Project Objective](#objective)
 3. [Database Schema](#db-schema)
 4. [Workflow Diagram](#workflow)
 5. [Technologies](#technologies)
