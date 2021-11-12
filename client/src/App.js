@@ -11,7 +11,7 @@ function App() {
 
     <div className="App">
 
-       <h1>Hi Team!</h1>
+       <h1>App Name</h1>
       
       <NavBar />
 
