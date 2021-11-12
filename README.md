@@ -7,9 +7,9 @@ Team CodeOp's repo for Athena Winter Hackathon
 4. [Workflow Diagram](#workflow)
 5. [Technologies](#technologies)
 6. [Installation](#installation)
-7. [Create New Component/Feature or Continue Working on Existing Feature](#create-staging)
-8. [Start New Component/Feature](#create-branch)
-9. [Dependencies](#dependencies)
+7. [Dependencies](#dependencies)
+8. [Create New Component/Feature or Continue Working on Existing Feature](#create-staging)
+9. [Start New Component/Feature](#create-branch)
 
 
 
@@ -123,3 +123,39 @@ Team CodeOp's repo for Athena Winter Hackathon
     10. On your GitHub, a pop-up will show Compare and Pull Request from your new feature branch to main branch. Select staging instead of main, then click confirm merge. 
 
     11. Another Pull Request will pop-up and ask to merge from staging to main. As long as everything works, confirm the merge.  
+
+## <a name="dependencies">Dependencies</a>
+
+   ### Backend Dependencies 
+
+    1. In the project folder "team-codeop-athena-hack", select the package.json and look at what is listed:
+
+                {
+                        "name": "team-codeop-athena-hack",
+                        "version": "1.0.0",
+                        "license": "MIT",
+                        "scripts": {
+                        "start": "nodemon ./bin/www",
+                        "migrate": "node model/database.js"
+                        },
+                        "dependencies": {
+                        "cookie-parser": "^1.4.5",
+                        "dotenv": "^10.0.0",
+                        "express": "^4.17.1",
+                        "http-errors": "^1.8.0",
+                        "migrate": "^1.7.0",
+                        "morgan": "^1.10.0",
+                        "mysql": "^2.18.1",
+                        "nodemon": "^2.0.15"
+                        },
+                        "proxy": "http://localhost:5000"
+                }
+
+    2. Install the following:
+
+        yarn add cookie-parser dotenv express http-errors migrate morgan mysql nodemon
+
+
+    3. Run yarn one more time:
+
+        yarn 
