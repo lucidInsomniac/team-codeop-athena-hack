@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { render } from "@testing-library/react"
 import { MemoryRouter } from "react-router"
 import Dashboard from "./Dashboard"
@@ -11,6 +12,15 @@ import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import CalendarSummary from "./CalendarSummary";
 >>>>>>> 94bf299 (moodFormSol)
+||||||| deebd90
+import { render } from "@testing-library/react"
+import { MemoryRouter } from "react-router"
+import CalendarSummary from "./CalendarSummary"
+=======
+import { render } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
+import CalendarSummary from "./CalendarSummary";
+>>>>>>> 2f6e4d34811d8aeceed56ac0f427e0cfad6112d7
 import EditProfile from "./EditProfile";
 import LandingPage from "./LandingPage";
 import Login from "./Login";
@@ -20,6 +30,7 @@ import Registration from "./Registration";
 import MoodForm from "./MoodForm";
 
 /***************************Test initial React Routes to Render correctly */
+<<<<<<< HEAD
 <<<<<<< HEAD
 test("it should display Dashboard component", () => {
     render(
@@ -57,6 +68,44 @@ test("it should display EditProfile component", () => {
   );
   expect(document.body.textContent).toBe("Edit Profile");
 });
+||||||| deebd90
+test("it should display CalendarSummary component", () => {
+    render(
+        <MemoryRouter>
+            <CalendarSummary />
+        </MemoryRouter>
+    );
+    expect(document.body.textContent).toBe('Calendar Summary');
+})
+
+test("it should display EditProfile component", () => {
+    render(
+        <MemoryRouter>
+            <EditProfile />
+        </MemoryRouter>
+    );
+    expect(document.body.textContent).toBe('Edit Profile');
+    
+})
+=======
+test("it should display CalendarSummary component", () => {
+  render(
+    <MemoryRouter>
+      <CalendarSummary />
+    </MemoryRouter>
+  );
+  expect(document.body.textContent).toBe("Calendar Summary");
+});
+
+test("it should display EditProfile component", () => {
+  render(
+    <MemoryRouter>
+      <EditProfile />
+    </MemoryRouter>
+  );
+  expect(document.body.textContent).toBe("Edit Profile");
+});
+>>>>>>> 2f6e4d34811d8aeceed56ac0f427e0cfad6112d7
 
 test("it should display LandingPage component", () => {
   render(
