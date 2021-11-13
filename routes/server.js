@@ -45,6 +45,20 @@ router.get('/mood/:id', async (req, res) => {
   }
 });
 
+//get all mood entries by userid FROM CURRENT MOODFORM
+router.get('/moodform/:id', async (req, res) => {
+  let id = req.params.id;
+  let sql = `SELECT * FROM moodform WHERE userid = ${id}`
+  try {
+    let answer = await db(sql);
+    let result = answer.data;
+    res.send(result);
+
+  } catch(err) {
+    res.status(500).send({error: err.message});
+  }
+});
+
 //get the users 
 router.get('/users', async (req, res) => {
   let sql = `SELECT * FROM User`;
