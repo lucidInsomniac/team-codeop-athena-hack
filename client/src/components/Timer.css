@@ -1,15 +1,56 @@
 
 .timer {
+    padding: 10% 8% 10% 8%;
     margin-top:3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-shadow: rgb(240, 237, 229) 2px 0px 10px;
+    text-shadow: -1px 0px 1px white;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.9px);
+    -webkit-backdrop-filter: blur(3.9px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .button-wrapper {
-    margin-top: 3rem;
+    margin-top: 5rem;
     display: flex;
     justify-content: center;
-   
+}
+
+/*Reference: https://codepen.io/JavaScriptJunkie/pen/pPRooV*/
+
+
+.btn-timer{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+
+   background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+    box-shadow: 0 4px 15px 0 rgba(206, 149, 233, 0.75);
+}
+
+.btn-timer:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-timer:focus {
+    outline: none;
 }
