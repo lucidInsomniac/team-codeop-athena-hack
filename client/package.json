@@ -8,17 +8,8 @@
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^5.1.3",
     "react": "^17.0.2",
-<<<<<<< HEAD
-<<<<<<< HEAD
+    "react-bootstrap": "^2.0.2",
     "react-countdown-circle-timer": "^2.5.4",
-||||||| parent of 94bf299 (moodFormSol)
-=======
-    "react-bootstrap": "^2.0.2",
->>>>>>> 94bf299 (moodFormSol)
-||||||| deebd90
-=======
-    "react-bootstrap": "^2.0.2",
->>>>>>> 2f6e4d34811d8aeceed56ac0f427e0cfad6112d7
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
