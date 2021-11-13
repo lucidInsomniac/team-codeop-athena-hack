@@ -35,7 +35,7 @@ const Timer = () => {
 
 
             <div className="button-wrapper">
-                <button onClick={() => setIsPlaying((prev) => !prev)}>
+                <button className="btn-timer" onClick={() => setIsPlaying((prev) => !prev)}>
                     Pause/Start
                 </button>
             </div>
