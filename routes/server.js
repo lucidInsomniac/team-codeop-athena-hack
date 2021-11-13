@@ -12,29 +12,30 @@ router.get("/", function (req, res, next) {
 
 module.exports = router;
 
-//get all from table by userid
+//const for sql get all by userid statements
+const getallbyuserid = `SELECT DISTINCT
+mood.id,
+mood.userid,
+mood.mood1,
+mood.mood2,
+mood.mood3,
+mood.mood4,
+mood.mood5,
+mood.addedOn,
+symptoms.sleep_pattern,
+symptoms.substances,
+symptoms.swings,
+symptoms.social,
+symptoms.submittedOn
+FROM mood 
+INNER JOIN symptoms ON mood.addedOn = symptoms.submittedOn
+WHERE mood.userid =`;
 
+//get all mood entries by userid
 router.get('/mood/:id', async (req, res) => {
   let id = req.params.id;
-  let sql = `SELECT 
-  mood.userid,
-  mood.mood1,
-  mood.mood2,
-  mood.mood3,
-  mood.mood4,
-  mood.mood5,
-  mood.addedOn,
-  symptoms.sleep_pattern,
-  symptoms.substances,
-  symptoms.swings,
-  symptoms.social,
-  symptoms.submittedOn
-  FROM mood 
-  INNER JOIN symptoms ON mood.userid = symptoms.userid
-  WHERE mood.userid = ${id}
-  `;
   try {
-    let data = await db(sql);
+    let data = await db(getallbyuserid+id);
     let result = data.data;
     res.send(result);
 
@@ -43,39 +44,25 @@ router.get('/mood/:id', async (req, res) => {
   }
 });
 
-//get by id
+//add new mood&symptoms by userid
 
-router.get('/image_puzzle/:id', async (req, res) => {
+router.post('/mood/:id', async (req, res) => {
   let id = req.params.id;
-  let sql = `SELECT * FROM image_puzzle WHERE image_id = ${id}`
-  try {
-    let data = await db(sql);
-    let result = data.data;
-    if (result.length === 0) {
-      res.status(404).send({error: "Not found."})
-    } else {
-      res.send(result);
-    }
-  } catch(err) {
-    res.status(500).send({error: err.message});
-  }
-});
-
-//post new to table ---will need to change table name
-
-router.post('/image_puzzle', async (req, res) => {
-  //WILL NEED UPDATING  
-  let {image_set, difficulty_level, player_name, player_age, player_score, puzzle_completed} = req.body;
-  let sql = 'SELECT * FROM image_puzzle';
-  let updatesql = 
-  `INSERT INTO image_puzzle (image_set, difficulty_level, player_name, player_age, player_score, puzzle_completed)
-  VALUES ("${image_set}", ${difficulty_level}, "${player_name}", ${player_age}, ${player_score}, "${puzzle_completed}")
+  let {mood1, mood2, mood3, mood4, mood5, sleep_pattern, substances, swings, social} = req.body;
+  let sqlmood = 
+  `INSERT INTO mood (userid, mood1, mood2, mood3, mood4, mood5)
+  VALUES (${id}, ${mood1}, ${mood2}, ${mood3}, ${mood4}, ${mood5})
+  `;
+  let sqlsymptoms = 
+  `INSERT INTO symptoms (userid, sleep_pattern, substances, swings, social)
+  VALUES (${id}, "${sleep_pattern}", "${substances}", "${swings}", "${social}")
   `;
   try {
     //update the table
-    await db(updatesql);
-    //return everything
-    let data = await db(sql);
+    await db(sqlmood);
+    await db(sqlsymptoms);
+    //return everything by userid
+    let data = await db(getallbyuserid+id);
     let result = data.data;
     res.status(201).send(result);
 
@@ -84,15 +71,19 @@ router.post('/image_puzzle', async (req, res) => {
   }
 });
 
-//delete item by id return what's left
-
-router.delete('/image_puzzle/:id', async(req, res) => {
+//delete item by entry id and return what's left by userid
+//POSTMAN example --- localhost:5000/mood/2?userid=1
+router.delete('/mood/:id', async(req, res) => {
     let id = req.params.id;
-    let deletesql = `DELETE FROM image_puzzle WHERE image_id = ${id}`;
-    let sql = 'SELECT * FROM image_puzzle';
+    let userid = req.query.userid;
+    let deletesql = `
+    DELETE mood, symptoms
+    FROM mood
+    INNER JOIN symptoms ON mood.addedOn = symptoms.submittedOn
+    WHERE mood.id = ${id}`;
     try {
       await db(deletesql);
-      let data = await db(sql);
+      let data = await db(getallbyuserid+userid);
       let result = data.data;
       res.send(result);
     } catch(err) {
@@ -100,19 +91,22 @@ router.delete('/image_puzzle/:id', async(req, res) => {
     }
 });
 
-//update table by id return updated info only
+//update table by id return updated by userid
 
-router.put('/image_puzzle/:id', async (req, res) => {
+router.put('/mood/:id', async (req, res) => {
   let id = req.params.id;
-  let {image_set, difficulty_level, player_name} = req.body;
-  let updatesql = `UPDATE image_puzzle
-  SET image_set = "${image_set}", difficulty_level = ${difficulty_level}, player_name= "${player_name}"
-  WHERE image_id = ${id}
+  let userid = req.query.userid;
+  let {mood1, mood2, mood3, mood4, mood5, sleep_pattern, substances, swings, social} = req.body;
+  let updatesql = `UPDATE mood INNER JOIN symptoms ON (mood.addedOn = symptoms.submittedOn)
+  SET
+  mood.mood1 = ${mood1}, mood.mood2 = ${mood2}, mood.mood3 = ${mood3}, mood.mood4 = ${mood4}, mood.mood5 = ${mood5},
+  symptoms.sleep_pattern = "${sleep_pattern}", symptoms.substances = "${substances}", symptoms.swings = "${swings}", symptoms.social = "${social}"
+  WHERE mood.id = ${id}
   `;
   let sql = `SELECT * FROM image_puzzle WHERE image_id = ${id}`;
   try {
     await db(updatesql);
-    let data = await db(sql);
+    let data = await db(getallbyuserid+userid);
     let result = data.data;
     res.send(result);
 
