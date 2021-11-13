@@ -15,9 +15,7 @@ const handleInputChange = (e) => {
 const handleSubmit = (e) => {
     e.preventDefault();
     console.log(login)
-    // loginUser(login);
-    props.onLoginCb(login); //borrar esta mierda
-
+    loginUser(login);
 
 }
 
