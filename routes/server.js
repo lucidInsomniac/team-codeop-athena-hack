@@ -2,6 +2,7 @@ const { response } = require('express');
 var express = require('express');
 var router = express.Router();
 const db = require("../model/helper");
+const { ensureSameUser} = require('../middleware/guards')
 // const bodyParser = require("body-parser");
 
 // router.use(bodyParser.json());
@@ -39,6 +40,50 @@ router.get('/mood/:id', async (req, res) => {
     let result = data.data;
     res.send(result);
 
+  } catch(err) {
+    res.status(500).send({error: err.message});
+  }
+});
+
+//get the users 
+router.get('/users', async (req, res) => {
+  let sql = `SELECT * FROM User`;
+  try {
+    let data = await db(sql);
+    let result = data.data;
+    result.forEach(u => delete u.password);
+    res.send(result);
+
+  } catch(err) {
+    res.status(500).send({error: err.message});
+  }
+});
+
+//get user by id
+router.get('/users/:id', ensureSameUser, async (req, res) => {
+  let id = req.params.id;
+  let sql = `SELECT * FROM User WHERE userid= ${id}`;
+  try {
+    let data = await db(sql);
+    let result = data.data;
+    result.forEach(u => delete u.password);
+    res.send(result);
+
+  } catch(err) {
+    res.status(500).send({error: err.message});
+  }
+});
+
+//delete user by id
+router.delete('/users/:id', ensureSameUser, async(req, res) => {
+  let id = req.params.id;
+
+  let deletesql = `DELETE FROM users WHERE userid = ${id}`;
+  try {
+    await db(deletesql);
+    let data = await db(`SELECT * FROM User`);
+    let result = data.data;
+    res.send(result);
   } catch(err) {
     res.status(500).send({error: err.message});
   }
@@ -103,7 +148,6 @@ router.put('/mood/:id', async (req, res) => {
   symptoms.sleep_pattern = "${sleep_pattern}", symptoms.substances = "${substances}", symptoms.swings = "${swings}", symptoms.social = "${social}"
   WHERE mood.id = ${id}
   `;
-  let sql = `SELECT * FROM image_puzzle WHERE image_id = ${id}`;
   try {
     await db(updatesql);
     let data = await db(getallbyuserid+userid);
@@ -114,3 +158,5 @@ router.put('/mood/:id', async (req, res) => {
     res.status(500).send({error: err.message});
   }
 }); 
+
+
