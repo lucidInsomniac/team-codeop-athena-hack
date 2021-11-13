@@ -1,25 +1,32 @@
 import React, {useState} from 'react';
 
-const Login = () => {
+const Login = (props) => {
 
-let [username, setUsername] = useState("")
-let [password, setPassword] = useState("")
 let [alert, setAlert] = useState("")
-let [user, setUser] = useState(null);
+let [login, setLogin] = useState({username: "", password: ""});
 
-const handleChangeUsername = (e) => setUsername(e.target.value);
-const handleChangePassword = (e) => setPassword(e.target.value);
-const handleSubmit = (e) => {
+const handleInputChange = (e) => {
     e.preventDefault();
-    loginUser();
+    const {value, name} = e.target;
+    setLogin((state) => ({...state, [name]: value}))
+
 }
 
-const loginUser = async () => {
-    if (username && password) {
+const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(login)
+    // loginUser(login);
+    props.onLoginCb(login); //borrar esta mierda
+
+
+}
+
+const loginUser = async (login) => {
+    if (login.username && login.password) {
         try {
-            const res = await fetch(`/user/${username}`);
+            const res = await fetch(`/user/${login.username}`);
             const user = await res.json();
-            setUser(user);
+            props.onLoginCb(user);
             console.log(user)
 
         } catch (error) {
@@ -33,31 +40,37 @@ const loginUser = async () => {
 }
     return (
 
-        <div className="login">
+        <div className="login container">
             <h1>Login</h1>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <label>Username</label>
-                <input 
-                type="text"
-                name="username"
-                value={username}
-                required 
-                onChange={(e) => handleChangeUsername(e)}
-                />
+            <form className="container-sm" onSubmit={(e) => handleSubmit(e)}>
+                <div className="mb-3">
                 
-                <label>Password</label>
-                <input
-                type="password"
-                name="password"
-                value={password}
-                onChange={(e) => handleChangePassword(e)}
-                required 
-                />
+                    <label className="form-label">Username</label>
+                    <input 
+                    className="form-control"
+                    type="text"
+                    name="username"
+                    value={login.username}
+                    required 
+                    onChange={(e) => handleInputChange(e)}
+                    />
+                </div>
+                <div className="mb-3">
 
-                <button type="submit">Login</button>
+                    <label className="form-label">Password</label>
+                    <input
+                    className="form-control"
+                    type="password"
+                    name="password"
+                    value={login.password}
+                    onChange={(e) => handleInputChange(e)}
+                    required 
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary">Login</button>
             </form>
-            <div><a href="#" >Forgot my password</a></div>
-            <div>{alert && 
+            <div className="mb-3"><a href="#" >Forgot my password</a></div>
+            <div className="mb-3">{alert && 
                 <p>{alert}</p>
             
             }</div>
