@@ -17,13 +17,20 @@ import './App.css';
 =======
 import ReactRoutes from "./components/ReactRoutes";
 import NavBar from "./components/NavBar";
+import MoodForm from "./components/MoodForm";
 import { BrowserRouter as Router } from "react-router-dom";
+<<<<<<< HEAD
 import { Link, Outlet } from "react-router-dom";
 >>>>>>> 94bf299 (moodFormSol)
 
 <<<<<<< HEAD
 function App() {
   let [onLogin, setLogin] = useState({});
+||||||| parent of 2f6e4d3 (form done)
+import { Link, Outlet } from "react-router-dom";
+=======
+import { useState } from "react";
+>>>>>>> 2f6e4d3 (form done)
 
 const [register, setRegister] = useState([]);
 ||||||| parent of 94bf299 (moodFormSol)
@@ -33,6 +40,8 @@ import "./App.css";
 >>>>>>> 94bf299 (moodFormSol)
 
 function App() {
+  let [moodForm, setMoodForm] = useState({});
+
   return (
     <Router>
       <div className="App">
@@ -64,8 +73,9 @@ function App() {
         <NavBar />
 >>>>>>> 94bf299 (moodFormSol)
 
+        <MoodForm onEntryCb={(moodForm) => setMoodForm(moodForm)} />
+
         <ReactRoutes />
-        <Outlet />
       </div>
     </Router>
   );
