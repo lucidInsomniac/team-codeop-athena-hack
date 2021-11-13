@@ -14,18 +14,19 @@ import { useState } from "react";
 
 const MoodForm = (props) => {
   let [moodData, setMoodData] = useState({
-    date: "",
+    userid: 1,
+    dateadded: "",
     mood: "",
     sleeping: "",
     substances: "",
     swings: "",
     friends: "",
   });
-
+  
   const handleInputChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
-
+    const { dateadded, mood, sleeping, substances, swings, friends } = moodData;
     setMoodData((state) => ({
       ...state,
       [name]: value,
@@ -35,15 +36,18 @@ const MoodForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(moodData);
+    addMood(moodData);
     props.onEntryCb(moodData);
+    
   };
 
-  const { date, mood, sleeping, substances, swings, friends } = moodData;
-  const addMood = async (event, moodData) => {
-    event.preventDefault();
+  const { dateadded, mood, sleeping, substances, swings, friends } = moodData;
+  const addMood = async (moodData) => {
+    
     props.onEntryCb(moodData);
     try {
-      const res = await fetch("/moodform", {
+      console.log(moodData);
+      const res = await fetch("/moodform/1", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(moodData),
@@ -64,8 +68,8 @@ const MoodForm = (props) => {
           Today is:
           <FormControl
             type="date"
-            value={date}
-            name="date"
+            value={dateadded}
+            name="dateadded"
             onChange={(e) => handleInputChange(e)}
             className="m-auto"
           ></FormControl>
@@ -154,10 +158,10 @@ const MoodForm = (props) => {
             inline
             label="Yes"
             name="sleeping"
-            value="yes"
+            value="Yes"
             type="radio"
             id={`inline-radio-1`}
-            checked={sleeping === "yes" ? true : false}
+            checked={sleeping === "Yes" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
           <Form.Check
@@ -165,9 +169,9 @@ const MoodForm = (props) => {
             label="No"
             name="sleeping"
             type="radio"
-            value="no"
+            value="No"
             id={`inline-radio-2`}
-            checked={sleeping === "no" ? true : false}
+            checked={sleeping === "No" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
         </FormGroup>
@@ -179,8 +183,8 @@ const MoodForm = (props) => {
             name="substances"
             type="radio"
             id={`inline-radio-1`}
-            value="yes"
-            checked={substances === "yes" ? true : false}
+            value="Yes"
+            checked={substances === "Yes" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
           <Form.Check
@@ -189,8 +193,8 @@ const MoodForm = (props) => {
             name="substances"
             type="radio"
             id={`inline-radio-2`}
-            value="no"
-            checked={substances === "no" ? true : false}
+            value="No"
+            checked={substances === "No" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
         </FormGroup>
@@ -202,8 +206,8 @@ const MoodForm = (props) => {
             name="swings"
             type="radio"
             id={`inline-radio-1`}
-            value="yes"
-            checked={swings === "yes" ? true : false}
+            value="Yes"
+            checked={swings === "Yes" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
           <Form.Check
@@ -212,8 +216,8 @@ const MoodForm = (props) => {
             name="swings"
             type="radio"
             id={`inline-radio-2`}
-            value="no"
-            checked={swings === "no" ? true : false}
+            value="No"
+            checked={swings === "No" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
         </FormGroup>
@@ -227,8 +231,8 @@ const MoodForm = (props) => {
             name="friends"
             type="radio"
             id={`inline-radio-1`}
-            value="yes"
-            checked={friends === "yes" ? true : false}
+            value="Yes"
+            checked={friends === "Yes" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
           <Form.Check
@@ -237,8 +241,8 @@ const MoodForm = (props) => {
             name="friends"
             type="radio"
             id={`inline-radio-2`}
-            value="no"
-            checked={friends === "no" ? true : false}
+            value="No"
+            checked={friends === "No" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
         </FormGroup>
