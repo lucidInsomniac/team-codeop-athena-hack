@@ -10,8 +10,6 @@ function App() {
     <Router>
 
     <div className="App">
-
-       <h1>App Name</h1>
       
       <NavBar />
 
