@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
+// import one from "../public/one.png";
+// import two from "../public/two.png";
+// import three from "../public/three.png";
 
 
-const Registration = () => {
+const Registration = (props) => {
 
-const [user, setUser] = useState({avatar: "", username: "", email: "", password: "", repeat_password: ""})
+const [user, setUser] = useState({avatar_group: "", username: "", email: "", password: "", repeat_password: ""})
 const [error, setError] = useState("");
 
 const handleInputChange = (event) => {
@@ -15,6 +18,7 @@ setUser((state) => ({...state, [name]: value}))
 const handleSubmit = (event) => {
 event.preventDefault();
 register();
+// to test until the get is not working props.onDoneCb(user)
 
 }
 
@@ -28,6 +32,7 @@ const register = async () => {
         body: JSON.stringify(user)
       });
       const newUser = await response.json();
+      props.onDoneCb(newUser);
       
    //Where is this data going 
     } catch (error) {
@@ -35,20 +40,9 @@ const register = async () => {
     }
 }
 
-const {avatar, username, email, password, repeat_password} = user;
+const {avatar_group, username, email, password, repeat_password} = user;
 
-    /*email
-username
-password
-password x2
-checkbox agree to terms
-submit button
-avatar
-alert component - fill all the inputs!
-
-handleChange
-handleSubmit
-alert component - successfully registered */
+ 
 
     return (
 
@@ -57,9 +51,24 @@ alert component - successfully registered */
             <h1>Registration</h1>
             <form className="form-control" onSubmit={handleSubmit}>
 
-                
                 <label className="form-label">Choose an avatar</label>
-            
+                <div className="row mt-4">
+                  <span id="1" className="card-body">
+                    <img src="#" alt="avatar_1"/>
+                     <input type="radio" name="avatar_group" value="1" checked={avatar_group === "1" ? true : false} onChange={(e)=>handleInputChange(e)}/> 
+                  </span>
+                  
+           
+               <span id="2" className="card-body">
+                     <img src="#" alt="avatar_2"/>
+                     <input type="radio" name="avatar_group" value="2" checked={avatar_group === "2" ? true : false} onChange={(e)=>handleInputChange(e)}/> 
+                     </span> 
+
+                  <span id="3" className="card-body">
+                    <img src="#" alt="avatar_3"/>
+                    <input type="radio" name="avatar_group" value="3" checked={avatar_group === "3" ? true : false} onChange={(e)=>handleInputChange(e)} />
+                  </span>
+                </div>
 
 
                 <div className="col-6 mt-4">
@@ -112,8 +121,8 @@ alert component - successfully registered */
 
                 <div className="col-6 mt-4">
                 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-  <label class="form-check-label" for="flexCheckDefault" >
+  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={(e)=>handleInputChange(e)} />
+  <label className="form-check-label" htmlFor="flexCheckDefault">
     I agree with Terms of Use
   </label>
 </div>
