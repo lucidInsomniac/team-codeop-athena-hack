@@ -5,13 +5,12 @@ import React, {useState} from 'react';
 import './App.css';
 import React, {useState} from "react";
 import Login from "./components/Login"
-
-function App() {
-
-let [onLogin, setLogin] = useState({});
 import Registration from './components/Registration';
 
+
+
 function App() {
+  let [onLogin, setLogin] = useState({});
 
 const [register, setRegister] = useState([]);
 
