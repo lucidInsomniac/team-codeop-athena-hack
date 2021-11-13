@@ -10,8 +10,6 @@ import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 import { Route, Routes } from 'react-router-dom';
 import MoodForm from "./MoodForm";
-//import { Link, Outlet } from "react-router-dom";
-
 
 
 
