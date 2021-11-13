@@ -12,10 +12,27 @@ router.get("/", function (req, res, next) {
 
 module.exports = router;
 
-//get all from table --- will need to change table name
+//get all from table by userid
 
-router.get('/image_puzzle', async (req, res) => {
-  let sql = 'SELECT * FROM image_puzzle';
+router.get('/mood/:id', async (req, res) => {
+  let id = req.params.id;
+  let sql = `SELECT 
+  mood.userid,
+  mood.mood1,
+  mood.mood2,
+  mood.mood3,
+  mood.mood4,
+  mood.mood5,
+  mood.addedOn,
+  symptoms.sleep_pattern,
+  symptoms.substances,
+  symptoms.swings,
+  symptoms.social,
+  symptoms.submittedOn
+  FROM mood 
+  INNER JOIN symptoms ON mood.userid = symptoms.userid
+  WHERE mood.userid = ${id}
+  `;
   try {
     let data = await db(sql);
     let result = data.data;
