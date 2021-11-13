@@ -14,8 +14,6 @@ const [register, setRegister] = useState([]);
     <Router>
 
     <div className="App">
-
-       <h1>App Name</h1>
       
       <NavBar />
 
