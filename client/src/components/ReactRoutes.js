@@ -1,5 +1,5 @@
 import React from 'react';
-import CalendarSummary from './CalendarSummary';
+import Dashboard from './Dashboard';
 import EditProfile from './EditProfile';
 import LandingPage from './LandingPage';
 import Login from './Login';
@@ -32,7 +32,7 @@ const ReactRoutes = () => {
                 
                 <Route path="/edit-profile" element={<EditProfile />} />
                 
-                <Route path="/calendar" element={<CalendarSummary />} />
+                <Route path="/dashboard" element={<Dashboard />} />
 
             </Routes>
         
