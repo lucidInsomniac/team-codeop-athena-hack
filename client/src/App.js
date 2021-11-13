@@ -3,7 +3,7 @@ import NavBar from './components/NavBar'
 import {BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 import React, {useState} from "react";
-import Login from "../src/components/Login"
+import Login from "./components/Login"
 
 function App() {
 
