@@ -7,7 +7,6 @@ import ProfilePage from "./ProfilePage";
 import Registration from "./Registration";
 import { Route, Routes } from "react-router-dom";
 import MoodForm from "./MoodForm";
-import { Link, Outlet } from "react-router-dom";
 
 const ReactRoutes = () => {
   return (
@@ -27,8 +26,6 @@ const ReactRoutes = () => {
 
         <Route path="/moodform" element={<MoodForm />} />
       </Routes>
-      <Link to="/moodform" />
-      <Outlet />
     </div>
   );
 };
