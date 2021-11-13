@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS User, Mood, Symptoms;
+DROP TABLE IF EXISTS User, Mood, Symptoms, moodform;
 
 CREATE TABLE User ( 
     userid int NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -32,9 +32,21 @@ CREATE TABLE Symptoms (
     FOREIGN KEY(userid) REFERENCES User(userid)
 );
 
+CREATE TABLE moodform ( 
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    userid INT NOT NULL,
+    dateadded DATETIME,
+    mood INT NOT NULL,
+    sleeping VARCHAR(3),
+    substances VARCHAR(3),
+    swings VARCHAR(3),
+    friends VARCHAR(3),
+    FOREIGN KEY(userid) REFERENCES User(userid)
+);
+
 INSERT INTO User (username, email, password, avatar)
     VALUES
-        ("Lina", "Lina@email.com", "$2b$12$eFzMWbS9SogNtxkmo3J7aO8FQMFQSKbtpwLMIOVsF6GGKpTQdgq.W", "1.jpg");
+        ("Penelope", "Penelope@email.com", "$2b$12$eFzMWbS9SogNtxkmo3J7aO8FQMFQSKbtpwLMIOVsF6GGKpTQdgq.W", "1.jpg");
 
 INSERT INTO Mood (userid, mood1, mood2, mood3, mood4, mood5)
     VALUES
@@ -43,3 +55,13 @@ INSERT INTO Mood (userid, mood1, mood2, mood3, mood4, mood5)
 INSERT INTO Symptoms (userid, sleep_pattern, substances, swings, social)
     VALUES
         (1, "Y", "N", "Y", "N");
+
+INSERT INTO  moodform (userid, dateadded, mood, sleeping, substances, swings, friends)
+    VALUES
+        (1, "2021-11-07", 3, "Yes", "No", "Yes", "No"),
+        (1, "2021-11-08", 1, "No", "No", "Yes", "Yes"),
+        (1, "2021-11-09", 4, "No", "Yes", "No", "Yes"),
+        (1, "2021-11-10", 2, "No", "No", "Yes", "Yes"),
+        (1, "2021-11-11", 3, "Yes", "No", "Yes", "Yes"),
+        (1, "2021-11-12", 2, "No", "No", "No", "No"),
+        (1, "2021-11-13", 1, "Yes", "No", "No", "No");

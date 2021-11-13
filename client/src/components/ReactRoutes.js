@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Dashboard from './Dashboard';
 import EditProfile from './EditProfile';
 import LandingPage from './LandingPage';
@@ -19,6 +19,34 @@ const ReactRoutes = () => {
   let [moodForm, setMoodForm] = useState({});
   const [register, setRegister] = useState([]);
 
+  const [calendarEntries, setCalendarEntries] = useState([]);
+  useEffect(() => {
+    entriesByUser();
+
+}, []);
+
+// const entriesByUser = () => {
+//   fetch("/moodform/1")
+//     .then(response => response.json())
+//     .then(entries => {
+//       setCalendarEntries(entries);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+// };
+
+async function entriesByUser() {
+  try {
+    let response = await fetch ('/moodform/1');
+    if(response.ok) {
+      let data = await response.json();
+      setCalendarEntries(data);
+    }
+  } catch(err) {
+    console.log(`Server error: ${err.message}`);
+  }
+}
 
     return (
         
@@ -40,7 +68,7 @@ const ReactRoutes = () => {
                 
                 <Route path="/edit-profile" element={<EditProfile />} />
                 
-                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/dashboard" element={<Dashboard calendarEntries={calendarEntries}/>} />
 
                 <Route path="/moodform" element={<MoodForm onEntryCb={(moodForm) => setMoodForm(moodForm)}/>} />
               
