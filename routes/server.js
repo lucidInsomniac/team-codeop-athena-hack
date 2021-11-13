@@ -59,6 +59,24 @@ router.get('/moodform/:id', async (req, res) => {
   }
 });
 
+//post  mood entries by userid FROM CURRENT MOODFORM
+router.post('/moodform/:id', async (req, res) => {
+  let id = req.params.id;
+  let {dateadded, mood, sleeping, substances, swings, friends} = req.body;
+  let sql = `INSERT INTO moodform (userid, dateadded, mood, sleeping, substances, swings, friends)
+  VALUES (${id}, "${dateadded}", "${mood}", "${sleeping}", "${substances}", "${swings}", "${friends}")`;
+  try {
+    //update the table
+    await db(sql);
+    //return everything by userid
+    let data = await db(`SELECT * FROM moodform WHERE userid = ${id}`);
+    let result = data.data;
+    res.status(201).send(result);
+
+  } catch(err) {
+    res.status(500).send({error: err.message});
+  }
+});
 //get the users 
 router.get('/users', async (req, res) => {
   let sql = `SELECT * FROM User`;
