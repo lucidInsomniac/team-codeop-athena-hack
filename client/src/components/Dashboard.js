@@ -5,7 +5,7 @@ const CalendarSummary = () => {
     return (
 
         <div className="calendar-summary">
-            <h1>Calendar Summary</h1>
+            <h1>Dashboard</h1>
         </div>
     );
 }

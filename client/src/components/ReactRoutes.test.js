@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react"
 import { MemoryRouter } from "react-router"
-import CalendarSummary from "./CalendarSummary"
+import Dashboard from "./Dashboard"
 import EditProfile from "./EditProfile";
 import LandingPage from "./LandingPage";
 import Login from "./Login";
@@ -10,13 +10,13 @@ import Registration from "./Registration";
 
 
 /***************************Test initial React Routes to Render correctly */
-test("it should display CalendarSummary component", () => {
+test("it should display Dashboard component", () => {
     render(
         <MemoryRouter>
-            <CalendarSummary />
+            <Dashboard />
         </MemoryRouter>
     );
-    expect(document.body.textContent).toBe('Calendar Summary');
+    expect(document.body.textContent).toBe('Dashboard');
 })
 
 test("it should display EditProfile component", () => {
