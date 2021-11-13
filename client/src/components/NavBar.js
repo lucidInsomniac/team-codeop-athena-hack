@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavBarData } from './NavBarData';
-import { Link } from 'react-router-dom';
+// import { NavBarData } from './NavBarData';
+// import { Link } from 'react-router-dom';
 import logo_black from './Icons/logo_black.svg'
 
 const NavBar = () => {
