@@ -13,6 +13,7 @@ import MoodForm from "./MoodForm";
 
 
 
+
 const ReactRoutes = () => {
 
   let [onLogin, setLogin] = useState({});
@@ -58,7 +59,7 @@ async function entriesByUser() {
 
                 <Route path="/about-us" element={<AboutUs />} />
                 
-                <Route path="/login" element={<Login  onLoginCb = {onLogin => setLogin(onLogin)}/>} />
+                <Route path="/login" element={<Login className="route-login" onLoginCb = {onLogin => setLogin(onLogin)}/>} />
                 
                 <Route path="/register" element={<Registration onDoneCb={(register) => setRegister(register)}/>} />
 
