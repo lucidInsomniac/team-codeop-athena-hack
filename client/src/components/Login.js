@@ -2,8 +2,12 @@ import React, {useState} from 'react';
 
 const Login = (props) => {
 
+const INITIAL_DATA = {
+    username: "", 
+    password: ""
+}
 let [alert, setAlert] = useState("")
-let [login, setLogin] = useState({username: "", password: ""});
+let [login, setLogin] = useState(INITIAL_DATA);
 
 const handleInputChange = (e) => {
     e.preventDefault();
@@ -15,28 +19,29 @@ const handleInputChange = (e) => {
 const handleSubmit = (e) => {
     e.preventDefault();
     console.log(login)
-    loginUser(login);
+    props.onLoginCb(login);
+    setLogin(INITIAL_DATA);
 
 
 }
 
-const loginUser = async (login) => {
-    if (login.username && login.password) {
-        try {
-            const res = await fetch(`/user/${login.username}`);
-            const user = await res.json();
-            props.onLoginCb(user);
-            console.log(user)
+// const loginUser = async (login) => {
+//     if (login.username && login.password) {
+//         try {
+//             const res = await fetch(`/user/${login.username}`);
+//             const user = await res.json();
+//             props.onLoginCb(user);
+//             console.log(user)
 
-        } catch (error) {
-            console.log(error[0])
-            setAlert(error[0]);
-        }
+//         } catch (error) {
+//             console.log(error[0])
+//             setAlert(error[0]);
+//         }
 
-    } else {
-        setAlert("Please fill all the inputs.")
-    }
-}
+//     } else {
+//         setAlert("Please fill all the inputs.")
+//     }
+// }
     return (
 
         <div className="login container">
