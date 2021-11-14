@@ -1,5 +1,4 @@
-
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Dashboard from './Dashboard';
 import EditProfile from './EditProfile';
 import LandingPage from './LandingPage';
