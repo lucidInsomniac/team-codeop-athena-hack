@@ -26,16 +26,6 @@ const ReactRoutes = () => {
 
 }, []);
 
-// const entriesByUser = () => {
-//   fetch("/moodform/1")
-//     .then(response => response.json())
-//     .then(entries => {
-//       setCalendarEntries(entries);
-//     })
-//     .catch(error => {
-//       console.log(error);
-//     });
-// };
 
 async function entriesByUser() {
   try {
