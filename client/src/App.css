@@ -6,13 +6,12 @@
 .App {
   text-align: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   background: linear-gradient(45deg,#F17C58, #E94584, #24AADB , #27DBB1,#FFDC18, #FF3706);
   background-size: 600% 100%;
   animation: gradient 80s infinite alternate;
   animation-direction: alternate;
-  overflow: scroll;
 }
 
 @keyframes gradient {
@@ -30,17 +29,4 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-#one, #two, #three{
-  width: 30%;
-}
-.card-body{
-  flex-basis: 30%;
-}
-
-#registrationform{
-      display: flex;
-    flex-direction: column;
-    align-items: center;
 }
