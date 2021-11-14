@@ -9,9 +9,9 @@
 ![Slide 4](faceITApp4.gif)
 
 
+## Checkout our submission on [YouTube](https://youtu.be/6IPOAeivPnE)
 
-
-Team CodeOp's repo for Athena Winter Hackathon
+# Team CodeOp's repo for Athena Winter Hackathon
 
 1. [Introductions](#introductions)
 2. [Project Objective](#objective)
