@@ -1,6 +1,6 @@
 import React from 'react';
 import Timer from './Timer'
-
+import './LandingPage.css'
 
 const LandingPage = () => {
 
