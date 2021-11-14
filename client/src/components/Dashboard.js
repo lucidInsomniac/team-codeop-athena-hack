@@ -3,58 +3,44 @@ import { Button, Card, CardTitle } from "react-bootstrap";
 
 const Dashboard = (props) => {
   useEffect(() => {
-    getSummary();
+    getEntries();
   }, []);
 
   const [moodEntries, setMoodEntries] = useState([
     {
       date: "",
-      mood: "-5",
-      sleeping: "0",
-      substances: "0",
-      swings: "0",
-      friends: "1",
+      mood: "",
+      sleeping: "",
+      substances: "",
+      swings: "",
+      friends: "",
     },
-    {
-      date: "",
-      mood: "1",
-      sleeping: "0",
-      substances: "0",
-      swings: 0,
-      friends: 1,
-    },
-    {
-      date: "",
-      mood: 3,
-      sleeping: 0,
-      substances: 0,
-      swings: 0,
-      friends: 1,
-    },
-    {
-      date: "",
-      mood: 6,
-      sleeping: 0,
-      substances: 0,
-      swings: 0,
-      friends: 1,
-    },
-  ]); //esto lo recibimos
-  const [summary, setSummary] = useState({}); //lo que {procesamos}
+   
+  ]);
+ 
   const [error, setError] = useState("");
-  //GET
-  //  const getEntries = async () =>{
-  //      try{
-  // const response = await fetch("./entries");
-  //   const data = await response.json();
-  //   setMoodEntries(data);
-  //      }
-  //      catch(err){
-  //      }
 
-  //  }
+  //GET
+   const getEntries = async () =>{
+       try{
+  const response = await fetch("./mood");
+  const entries = await response.json();
+  entries.map((entry, i) =>{
+  if(entry.mood === 1) return entry.mood ===0;
+  if(entry.sleeping === "Y") return entry.sleeping === -1;
+  if(entry.substances === "Y")return entry.substances === -1;
+  if(entry.swings === "Y")return entry.swings === -1;
+  if(entry.friends === "N") return entry.friends === -1;
+  })
+  setMoodEntries(entries);
+       }
+  catch(err){
+         setError(err);
+       }
+
+   }
   const { mood, sleeping, substances, swings, friends } = moodEntries;
-  const getSummary = () => {};
+
 
   return (
     <div className="calendar-summary container">
@@ -101,6 +87,7 @@ const Dashboard = (props) => {
             </Card>
           ))}
       </div>
+ 
     </div>
   );
 };
