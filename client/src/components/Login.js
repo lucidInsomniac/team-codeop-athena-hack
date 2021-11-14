@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import './Login.css'
 
 const Login = (props) => {
@@ -75,14 +76,19 @@ const handleSubmit = (e) => {
                         required 
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary">Login</button>
+                    <button type="submit" className="btn btn-primary" id="login-btn">Login</button>
                 </form>
             </div>
             <div id="forgot-pw" className="mb-3"><a href="#" >Forgot my password</a></div>
-            <div className="mb-3">{alert && 
-                <p>{alert}</p>
-            
-            }</div>
+            <div className="mb-3">
+
+                {alert && 
+                  <p>{alert}</p>
+             }
+
+            </div>
+
+            <div id="register" className="mb-3"><Link to="/register">Register</Link></div>
         </div>
     );
 }

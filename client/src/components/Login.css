@@ -42,16 +42,38 @@
     box-shadow: 2px 2px 2px 2px rgb(104, 149, 231);;
 }
 
-#forgot-pw {
-   margin-top: 5%;
+#forgot-pw{
+   margin-top: 2rem;
    text-shadow: 3px 3px 0px 3px white;
    
 }
 
-#forgot-pw:hover {
-   background: white;
-   opacity: 0.5;
+#forgot-pw:hover{
+    margin-top: 2rem;
+    text-shadow: 3px 3px 0px 3px white;
+    background: white;
+    opacity: 0.5;
     
  }
+
+#register {
+    margin-bottom: 2rem;
+}
+
+#register:hover{
+   background: white;
+   opacity: 0.5;
+   margin-bottom: 2rem;
+    
+ }
+ 
+ #login-btn {
+     width:70%;
+    padding-top: .5rem;
+    padding-bottom:.5rem;
+
+ }
+
+
  
  
