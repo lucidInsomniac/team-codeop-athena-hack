@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import logo_black from './Icons/logo_black.svg'
+import context from "../context";
 
 const NavBar = () => {
-    
+    let {user, doLogoutCb} = useContext(context);
     return (
 
         <div className="nav-bar">
@@ -15,6 +16,11 @@ const NavBar = () => {
                   id="logo"
                   alt="" 
                 />
+
+                {user ? (<div>
+                    <p style={{ cursor: 'pointer' }} onClick={doLogoutCb}>Logout</p>
+                </div> )
+                : (null)}
             </a>
             
             <h1>Name of App</h1>
@@ -37,6 +43,10 @@ const NavBar = () => {
 
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Login</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
                 </li>
 
                 <li class="nav-item">
