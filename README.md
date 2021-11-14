@@ -1,11 +1,12 @@
-# team-codeop-athena-hack
+# The Face - It App
+
+
+
+
 Team CodeOp's repo for Athena Winter Hackathon
 
 1. [Introductions](#introductions)
 2. [Project Objective](#objective)
-3. [Database Schema](#db-schema)
-4. [Workflow Diagram](#workflow)
-5. [Technologies](#technologies)
 6. [Installation](#installation)
 7. [Dependencies](#dependencies)
 8. [Create New Component/Feature or Continue Working on Existing Feature](#create-staging)
@@ -13,22 +14,20 @@ Team CodeOp's repo for Athena Winter Hackathon
 
 
 ## <a name="introductions">Introductions</a>
+We are Lina, Corinna, Sol, Maria and Donna from the interational coding bootcamp [CodeOp](https://codeop.tech/). This is our first hackathon ever and our group submission to the [Winter 2021 Athena Hackathon!](https://athenahacks.com/). 
 
 
 ## <a name="objective">Project Objective:</a>
 
 ### Topic:
 
+   Life during COVID-19 has impacted us to our very core. Many people suffered from depression, became very hostile, distant, and desperate to get back to normalcy. Some of the many contributing factors that affect how we feel are based on our ability to have a routine, interact with people, our habits, sleep, and exercise. Our personal experiences during lock down made it difficult to stay motivated to work on self care.
+
+   We realized need reminders and accountability for ourselves to make progress work. But how can we keep ourselves responsible? How can we motivate ourselves? How can we see improvement when we start new challenges? How do we promote interaction and socialization? The Face - It App aims to make it simple and to the point to help us identify our negative habits and bring more self-awareness that it is okay to take a moment for ourselves. The Face - It App opens up to a breathing exercise without signing up to promote mindfulness in moments.
+
 ### Solution: 
 
-
-## <a name="db-schema">Database Schema</a>
-
-
-## <a name="workflow">Workflow Diagram</a>
-
-
-## <a name="technologies">Technologies</a>
+   Our stack is made of React, CSS, Bootstrap, Node.JS, Express, and MySQL. We decided to go with a form to collect the mood as a range from 1 to 5, and then 4 questions with yes/no answers which are translated into values. We created a functions to have a normalize value of all those input so that on each day we see an emoji related to the values. We assigned a max value of 8 and min of -4, and a mid low of 2 and a mid low of 4.
 
 
 ## <a name="installation">Installation</a>
