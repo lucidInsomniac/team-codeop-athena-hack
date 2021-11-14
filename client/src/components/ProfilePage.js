@@ -9,9 +9,12 @@ const ProfilePage = () => {
             {
               user ? 
               (
+                <div className="center-profile">
                 <div className="profile-page">
                     <div className="profile-card">
+                      <div>
                     <h1>Profile Page</h1>
+                    </div>
                    <img src={`/images/1.png`} alt="profile avatar" className="img-thumbnail"/>
                    <h5> Hey, {user.username} !</h5>
                    <div className="profile-card"></div>
@@ -19,6 +22,7 @@ const ProfilePage = () => {
                   <div>Email address: {user.email}</div>
                   <div>Member since: {user.createdOn.substring(0, 10)}</div>
                   </div>
+                </div>
                 </div>
               )  : (null)
             }

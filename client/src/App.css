@@ -66,6 +66,11 @@ h1 {
   }
 }
 
+.center-profile {
+  margin: 0 auto;
+  
+  margin-left: 720px;
+}
 .profile-page {
   margin-top: 3rem;
   width: 40%;
@@ -84,6 +89,7 @@ h1 {
   -webkit-backdrop-filter: blur(3.9px);
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
+
 
 .profile-card {
   padding-top: 20px;
