@@ -22,6 +22,7 @@ const Timer = () => {
     
     return (
         <div className="timer">
+            
             <div className="timer-wrapper">
                 <CountdownCircleTimer
                     isPlaying={isPlaying}
