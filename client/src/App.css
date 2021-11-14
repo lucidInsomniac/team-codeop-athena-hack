@@ -55,7 +55,7 @@ h1 {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: textclip 10s linear infinite;
+  animation: textclip 30s linear infinite;
   display: inline-block;
       font-size: 2rem;
 }
