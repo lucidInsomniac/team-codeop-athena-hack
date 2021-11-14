@@ -4,7 +4,7 @@ import './Timer.css'
 
 const renderTime = ({ remainingTime }) => {
     if (remainingTime === 0) {
-      return <div className="timer">Great Job!</div>;
+      return <div className="timer-msg">Great Job!</div>;
     }
   
     return (
