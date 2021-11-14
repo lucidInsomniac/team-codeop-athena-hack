@@ -1,5 +1,13 @@
 # The Face - It App
 
+![Slide 1](faceItApp1.png)
+
+![Slide 2](faceItApp2.png)
+
+![Slide 3](faceItApp3.png)
+
+![Slide 4](faceITApp4.gif)
+
 
 
 
