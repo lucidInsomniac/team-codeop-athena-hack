@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Dashboard from './Dashboard';
 import EditProfile from './EditProfile';
 import LandingPage from './LandingPage';
@@ -9,6 +9,7 @@ import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 import { Route, Routes } from 'react-router-dom';
 import MoodForm from "./MoodForm";
+
 
 
 
@@ -47,7 +48,7 @@ async function entriesByUser() {
 
                 <Route path="/about-us" element={<AboutUs />} />
                 
-                <Route path="/login" element={<Login  onLoginCb = {onLogin => setLogin(onLogin)}/>} />
+                <Route path="/login" element={<Login className="route-login" onLoginCb = {onLogin => setLogin(onLogin)}/>} />
                 
                 <Route path="/register" element={<Registration onDoneCb={(register) => setRegister(register)}/>} />
 
