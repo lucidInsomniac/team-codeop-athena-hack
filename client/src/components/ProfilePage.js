@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import context from "../context";
+
 
 const ProfilePage = () => {
-
+    let {user} = useContext(context);
     return (
-
-        <div className="profile-page">
-            <h1>Profile Page</h1>
+        <div>
+            {
+              user ? 
+              (
+                <div className="profile-page">
+                    <div className="profile-card">
+                    <h1>Profile Page</h1>
+                   <img src={`/images/1.png`} alt="profile avatar" className="img-thumbnail"/>
+                   <h5> Hey, {user.username} !</h5>
+                   <div className="profile-card"></div>
+                  <div>Name: {user.username}</div>
+                  <div>Email address: {user.email}</div>
+                  <div>Member since: {user.createdOn.substring(0, 10)}</div>
+                  </div>
+                </div>
+              )  : (null)
+            }
         </div>
+    
     );
 }
 

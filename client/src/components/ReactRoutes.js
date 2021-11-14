@@ -1,5 +1,5 @@
 
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import Dashboard from './Dashboard';
 import EditProfile from './EditProfile';
 import LandingPage from './LandingPage';
@@ -8,22 +8,21 @@ import ProfilePage from './ProfilePage';
 import Registration from './Registration';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes} from 'react-router-dom';
 import MoodForm from "./MoodForm";
-
-
+import context from "../context";
 
 const ReactRoutes = () => {
-
+  let {doLoginCb, user} = useContext(context);
   let [onLogin, setLogin] = useState({});
   let [moodForm, setMoodForm] = useState({});
   const [register, setRegister] = useState([]);
-
   const [calendarEntries, setCalendarEntries] = useState([]);
   useEffect(() => {
     entriesByUser();
 
 }, []);
+
 
 
 async function entriesByUser() {
@@ -38,6 +37,7 @@ async function entriesByUser() {
   }
 }
 
+
     return (
         
         <div className="react-routes">
@@ -48,7 +48,7 @@ async function entriesByUser() {
 
                 <Route path="/about-us" element={<AboutUs />} />
                 
-                <Route path="/login" element={<Login  onLoginCb = {onLogin => setLogin(onLogin)}/>} />
+                <Route path="/login" element={<Login  onLoginCb = {onLogin => doLoginCb(onLogin)}/>} />
                 
                 <Route path="/register" element={<Registration onDoneCb={(register) => setRegister(register)}/>} />
 
