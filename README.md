@@ -40,7 +40,7 @@ We are Lina, Corinna, Sol, Maria and Donna from the interational coding bootcamp
 
 ## <a name="installation">Installation</a>
 
-   <b>Note: This prototype uses the (yarn)[https://yarnpkg.com/] package manager. </b>
+   <b>Note: This prototype uses the [yarn](https://yarnpkg.com/) package manager. </b>
 
    If you are using Windows, to make life easy be sure you are using [Git Bash](https://git-scm.com/downloads) and not Windows Powershell, or Windows Command Terminal. Each has their own command syntax.
 
