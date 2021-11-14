@@ -8,7 +8,10 @@ import ProfilePage from "./ProfilePage";
 import NavBar from "./NavBar";
 import Registration from "./Registration";
 import MoodForm from "./MoodForm";
+
 /***************************Test initial React Routes to Render correctly */
+
+
 test("it should display Dashboard component", () => {
     render(
         <MemoryRouter>
@@ -17,6 +20,7 @@ test("it should display Dashboard component", () => {
     );
     expect(document.body.textContent).toBe('Dashboard');
 })
+
 test("it should display EditProfile component", () => {
   render(
     <MemoryRouter>
@@ -25,6 +29,7 @@ test("it should display EditProfile component", () => {
   );
   expect(document.body.textContent).toBe("Edit Profile");
 });
+
 test("it should display LandingPage component", () => {
   render(
     <MemoryRouter>
@@ -33,6 +38,7 @@ test("it should display LandingPage component", () => {
   );
   expect(document.body.textContent).toBe("Landing Page");
 });
+
 test("it should display Login component", () => {
   render(
     <MemoryRouter>
@@ -41,6 +47,7 @@ test("it should display Login component", () => {
   );
   expect(document.body.textContent).toBe("Login");
 });
+
 test("it should display NavBar component", () => {
   render(
     <MemoryRouter>
@@ -49,6 +56,7 @@ test("it should display NavBar component", () => {
   );
   expect(document.body.textContent).toBe("NavBar");
 });
+
 test("it should display ProfilePage component", () => {
   render(
     <MemoryRouter>
@@ -57,6 +65,7 @@ test("it should display ProfilePage component", () => {
   );
   expect(document.body.textContent).toBe("Profile Page");
 });
+
 test("it should display Registration component", () => {
   render(
     <MemoryRouter>
@@ -65,6 +74,7 @@ test("it should display Registration component", () => {
   );
   expect(document.body.textContent).toBe("Registration");
 });
+
 test("it should display MoodForm component", () => {
   render(
     <MemoryRouter>
