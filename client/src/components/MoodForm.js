@@ -1,4 +1,5 @@
 import React from "react";
+import './MoodForm.css'
 import {
   FormControl,
   FormGroup,
@@ -63,16 +64,19 @@ const MoodForm = (props) => {
   return (
     <div className="moodform">
       <h1>How are you feeling today?</h1>
-      <Form className="container" onSubmit={(e) => handleSubmit(e)}>
-        <FormGroup className="row">
-          Today is:
+      <Form className="moodform-container" onSubmit={(e) => handleSubmit(e)}>
+        <FormGroup className="row" id="calendar-row">
+          Select Date:
+          <div id="calendar-div">
           <FormControl
+            id="calendar-input"
             type="date"
             value={dateadded}
             name="dateadded"
             onChange={(e) => handleInputChange(e)}
             className="m-auto"
-          ></FormControl>
+          />
+          </div>
         </FormGroup>
         <FormGroup className="row">
           {/* <FormLabel>
@@ -88,6 +92,7 @@ const MoodForm = (props) => {
               sentiment_very_satisfied
             </span>
           </FormLabel> */}
+          <div id="emoji-row">
           <FormCheck
             label={
               <span class="material-icons-outlined text-primary">sick</span>
@@ -151,9 +156,13 @@ const MoodForm = (props) => {
             checked={mood === "5" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
+          </div>
         </FormGroup>
-        <FormGroup className="row">
+        <FormGroup className="row" id="question-row">
+          <div id="form-question">
           <FormLabel>Are you sleeping properly? </FormLabel>
+          </div>
+          <div  id="radio">
           <Form.Check
             inline
             label="Yes"
@@ -164,6 +173,8 @@ const MoodForm = (props) => {
             checked={sleeping === "Yes" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
+          </div>
+          <div  id="radio">
           <Form.Check
             inline
             label="No"
@@ -174,9 +185,13 @@ const MoodForm = (props) => {
             checked={sleeping === "No" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
+          </div>
         </FormGroup>
-        <FormGroup className="row">
-          <FormLabel> abuse of substances </FormLabel>
+        <FormGroup className="row" id="question-row">
+          <div id="form-question">
+          <FormLabel> Any abuse of substances ? </FormLabel>
+          </div>
+          <div  id="radio">
           <Form.Check
             inline
             label="Yes"
@@ -187,6 +202,8 @@ const MoodForm = (props) => {
             checked={substances === "Yes" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
+          </div>
+          <div  id="radio">
           <Form.Check
             inline
             label="No"
@@ -197,9 +214,13 @@ const MoodForm = (props) => {
             checked={substances === "No" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
+          </div>
         </FormGroup>
-        <FormGroup className="row">
-          <FormLabel>mood swings - frustration etc </FormLabel>
+        <FormGroup className="row" id="question-row">
+          <div id="form-question">
+          <FormLabel>Mood swings ? (...frustration, anxiety, etc.) </FormLabel>
+          </div>
+          <div  id="radio">
           <Form.Check
             inline
             label="Yes"
@@ -210,6 +231,8 @@ const MoodForm = (props) => {
             checked={swings === "Yes" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
+          </div>
+          <div  id="radio">
           <Form.Check
             inline
             label="No"
@@ -220,11 +243,13 @@ const MoodForm = (props) => {
             checked={swings === "No" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
+          </div>
         </FormGroup>
-        <FormGroup className="row">
-          <FormLabel>
-            are you reaching out with your friends less or more than usual
-          </FormLabel>
+        <FormGroup className="row" id="question-row">
+        <div id="form-question">
+          <FormLabel>Are you reaching out to your friends?</FormLabel>
+          </div>
+          <div  id="radio">
           <Form.Check
             inline
             label="Yes"
@@ -235,6 +260,8 @@ const MoodForm = (props) => {
             checked={friends === "Yes" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
+          </div>
+          <div  id="radio">
           <Form.Check
             inline
             label="No"
@@ -245,6 +272,7 @@ const MoodForm = (props) => {
             checked={friends === "No" ? true : false}
             onChange={(e) => handleInputChange(e)}
           />
+          </div>
         </FormGroup>
         {/* <FormRange /> */}
         {/* <InputRange
@@ -253,7 +281,9 @@ const MoodForm = (props) => {
             value={this.state.value}
             onChange={(value) => this.setState({ value })}
           /> */}
-        <Button type="submit">Submit</Button>
+          <div id="moodform-btn">
+        <Button type="submit" id="mood-btn">Submit</Button>
+        </div>
       </Form>
     </div>
   );
