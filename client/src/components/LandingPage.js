@@ -8,7 +8,7 @@ const LandingPage = () => {
 
         <div className="landing-page">
 
-            <h1>Landing Page</h1>   
+            <h1>STOP - DEEP INHALE - BREATHE</h1>   
 
                 <Timer className="timer-component"/>
 

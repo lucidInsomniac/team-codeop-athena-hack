@@ -4,14 +4,18 @@
 }
 
 .App {
+  
+  font-weight: 400;
+  font-size: 1.5rem;
   text-align: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: absolute;
   background: linear-gradient(45deg,#F17C58, #E94584, #24AADB , #27DBB1,#FFDC18, #FF3706);
   background-size: 600% 100%;
   animation: gradient 80s infinite alternate;
   animation-direction: alternate;
+  overflow: scroll;
 }
 
 @keyframes gradient {
@@ -19,7 +23,10 @@
   100% {background-position: 100%}
 }
 
-
+h1{
+  color: black;
+  text-shadow: 2px 0px 2px rgb(155, 143, 223);
+}
 
 .landing-page {
   margin-top: 3rem;
@@ -29,6 +36,34 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+h1 {
+
+
+  background-image: linear-gradient(
+    -225deg,
+    #150e2e 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 30s linear infinite;
+  display: inline-block;
+      font-size: 2rem;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .profile-page {

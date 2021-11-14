@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-shadow: -1px 0px 1px white;
+    text-shadow: -2px 0px -4px rgb(44, 42, 42);
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.1);
     border-radius: 16px;
@@ -29,6 +29,7 @@
     width: 100%;
     font-size: 16px;
     font-weight: 600;
+    font-size: 1.5rem;
     color: #fff;
     cursor: pointer;
     height: 55px;

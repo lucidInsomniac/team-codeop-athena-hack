@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import logo_black from './Icons/logo_black.svg'
 import context from "../context";
 
+
 const NavBar = () => {
     let {user, doLogoutCb} = useContext(context);
     return (
@@ -23,7 +24,7 @@ const NavBar = () => {
                 : (null)}
             </a>
             
-            <h1>Name of App</h1>
+            <h1>Face-It</h1>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
