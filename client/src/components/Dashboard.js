@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, CardTitle } from "react-bootstrap";
+import "./Dashboard.css"
+
+
 
 const Dashboard = (props) => {
   useEffect(() => {
@@ -23,7 +26,7 @@ const Dashboard = (props) => {
   //GET
    const getEntries = async () =>{
        try{
-  const response = await fetch("./mood");
+  const response = await fetch("./moodform");
   const entries = await response.json();
   entries.map((entry, i) =>{
   if(entry.mood === 1) return entry.mood ===0;
@@ -45,11 +48,12 @@ const Dashboard = (props) => {
   return (
     <div className="calendar-summary container">
       <h1 className="text-bold">Start your journey to wellness</h1>
-      <div className="row">
+      <div className="row" >
         {moodEntries &&
           moodEntries.map((entry, i) => (
-            <Card key={i} className="col mx-2 p-2">
-              <p>Day {i + 1}</p>
+            <Card key={i} className="col mx-2 p-2" id="main-row2">
+              {/* <p>Day {i + 1}</p> */}
+              <p>2021-11-14</p>
               <p className="">
                 {+entry.mood +
                   +entry.sleeping +
@@ -85,9 +89,24 @@ const Dashboard = (props) => {
                 )}
               </p>
             </Card>
+            
           ))}
+          
       </div>
- 
+      <h1 className="text-bold">Your week view</h1>
+      <div id="card-grid"> {
+        props.calendarEntries.map((e) => {
+          return <div className="card" id="mood-card">{e.dateadded.substring(0, 10)}
+          <div>
+          
+          <div>Slept Well? {e.sleeping}</div>
+          <div>Any Mood Swings? {e.swings}</div>
+          <div>Good Social Balance? {e.friends}</div>
+          <div>Any Substance Use? {e.substances}</div>
+          </div>
+          </div>
+        })
+          }</div>
     </div>
   );
 };

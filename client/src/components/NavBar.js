@@ -47,7 +47,10 @@ const NavBar = () => {
                 </li>
                 {user && 
                     <><li class="nav-item">
-                                <a class="nav-link" href="/profile">Profile</a>
+                        <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
+                </li>
+                                <a class="nav-link" href="/dashboard">Dashboard</a>
                             </li><li class="nav-item">
                                     <a class="nav-link" href="/moodform">How are you feeling?</a>
                                 </li></>
