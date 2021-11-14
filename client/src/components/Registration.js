@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-// import one from "../public/one.png";
-// import two from "../public/two.png";
-// import three from "../public/three.png";
+import one from "./Icons/one.png";
+import two from "./Icons/two.png";
+import three from "./Icons/three.png";
 
 
 const Registration = (props) => {
@@ -49,25 +49,30 @@ const {avatar_group, username, email, password, repeat_password} = user;
         <div className="registration">
             <div className="container mt-4">
             <h1>Registration</h1>
-            <form className="form-control" onSubmit={handleSubmit}>
+               <h3>Choose your avatar</h3>
+            <form id="registrationform" onSubmit={handleSubmit}>
 
-                <label className="form-label">Choose an avatar</label>
+             
                 <div className="row mt-4">
-                  <span id="1" className="card-body">
-                    <img src="#" alt="avatar_1"/>
-                     <input type="radio" name="avatar_group" value="1" checked={avatar_group === "1" ? true : false} onChange={(e)=>handleInputChange(e)}/> 
-                  </span>
+
+                  <div id="1" className="card-body">
+                    <label htmlFor="flor">
+                    <img src={one} alt="avatar_1" className="img-fluid" id="one"/></label>
+                     <input id="flor" type="radio" name="avatar_group" value="1" checked={avatar_group === "1" ? true : false} onChange={(e)=>handleInputChange(e)}/> 
+                  </div>
                   
            
-               <span id="2" className="card-body">
-                     <img src="#" alt="avatar_2"/>
-                     <input type="radio" name="avatar_group" value="2" checked={avatar_group === "2" ? true : false} onChange={(e)=>handleInputChange(e)}/> 
-                     </span> 
+               <div id="2" className="card-body">
+                 <label htmlFor="hoja">
+                     <img src={two} alt="avatar_2" className="img-fluid" id="two"/></label>
+                     <input id="hoja" type="radio" name="avatar_group" value="2" checked={avatar_group === "2" ? true : false} onChange={(e)=>handleInputChange(e)}/> 
+                     </div> 
 
-                  <span id="3" className="card-body">
-                    <img src="#" alt="avatar_3"/>
-                    <input type="radio" name="avatar_group" value="3" checked={avatar_group === "3" ? true : false} onChange={(e)=>handleInputChange(e)} />
-                  </span>
+                  <div id="3" className="card-body">
+                    <label htmlFor="arbol">
+                    <img src={three} alt="avatar_3" className="img-fluid" id="three"/></label>
+                    <input id="arbol" type="radio" name="avatar_group" value="3" checked={avatar_group === "3" ? true : false} onChange={(e)=>handleInputChange(e)} />
+                  </div>
                 </div>
 
 

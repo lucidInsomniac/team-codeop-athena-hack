@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './Login.css'
 
 const Login = (props) => {
 
@@ -39,36 +40,40 @@ const loginUser = async (login) => {
 }
     return (
 
-        <div className="login container">
-            <h1>Login</h1>
-            <form className="container-sm" onSubmit={(e) => handleSubmit(e)}>
-                <div className="mb-3">
-                
-                    <label className="form-label">Username</label>
-                    <input 
-                    className="form-control"
-                    type="text"
-                    name="username"
-                    value={login.username}
-                    required 
-                    onChange={(e) => handleInputChange(e)}
-                    />
-                </div>
-                <div className="mb-3">
+        <div className="login-container">
+            <h1 className="logo">Login</h1>
+            <div className="login-form">
+                <form className="container-sm" onSubmit={(e) => handleSubmit(e)}>
+                    <div className="mb-3">
+                    
+                        <label className="form-label">Username</label>
+                        <input 
+                        id="login-input-1"
+                        className="form-control"
+                        type="text"
+                        name="username"
+                        value={login.username}
+                        required 
+                        onChange={(e) => handleInputChange(e)}
+                        />
+                    </div>
+                    <div className="mb-3">
 
-                    <label className="form-label">Password</label>
-                    <input
-                    className="form-control"
-                    type="password"
-                    name="password"
-                    value={login.password}
-                    onChange={(e) => handleInputChange(e)}
-                    required 
-                    />
-                </div>
-                <button type="submit" className="btn btn-primary">Login</button>
-            </form>
-            <div className="mb-3"><a href="#" >Forgot my password</a></div>
+                        <label className="form-label">Password</label>
+                        <input
+                        id="login-input-2"
+                        className="form-control"
+                        type="password"
+                        name="password"
+                        value={login.password}
+                        onChange={(e) => handleInputChange(e)}
+                        required 
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Login</button>
+                </form>
+            </div>
+            <div id="forgot-pw" className="mb-3"><a href="#" >Forgot my password</a></div>
             <div className="mb-3">{alert && 
                 <p>{alert}</p>
             
