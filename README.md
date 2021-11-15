@@ -22,7 +22,15 @@
 
 
 ## <a name="introductions">Introductions</a>
-We are Lina, Corinna, Sol, Maria and Donna from the interational coding bootcamp [CodeOp](https://codeop.tech/). This is our first hackathon ever and our group submission to the [Winter 2021 Athena Hackathon!](https://athenahacks.com/). 
+We are:
+
+   - [Lina](https://github.com/LinaKind): Full Stack Lead 
+   - [Corinna](https://github.com/CorinnaGen): Full Stack Eng
+   - [Sol](https://github.com/solimartu): Full Stack Eng 
+   - [Maria](https://github.com/emepox): Full Stack Eng
+   - [Donna](https://github.com/lucidInsomniac): PM/Frontend/UX/UI 
+  
+  And are from the interational coding bootcamp [CodeOp](https://codeop.tech/). This is our first hackathon ever and our group submission to the [Winter 2021 Athena Hackathon!](https://athenahacks.com/). 
 
 
 ## <a name="objective">Project Objective:</a>
